@@ -2,6 +2,18 @@
 
 @section('content')
     <div class="container">
+    
+
+    @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                   <li class="list-group-item list-group-item-warning p-2">
+                   {{$error}}
+                   </li>
+                @endforeach
+            </div>
+    @endif
+
         <form method="post" >
             @csrf 
 

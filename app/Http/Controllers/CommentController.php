@@ -32,7 +32,19 @@ class CommentController extends Controller
 
     public function create(Request $req)
     {
+
+        $validator = validator(request()->all(),[
+            'content' => 'required',
+           
+        ]);
+
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+
         $comment = new Comment;
+
         
         $comment->content = $req->content;
         $comment->article_id = $req->article_id;

@@ -11,6 +11,17 @@
 
 @endif
 
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                   <li class="list-group-item list-group-item-warning p-2">
+                   {{$error}}
+                   </li>
+                @endforeach
+            </div>
+        @endif
+
 <div class="card mb-2">
     <div class="card-body">
         <h5 class="card-title">
